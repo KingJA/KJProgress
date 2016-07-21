@@ -70,6 +70,7 @@ public class KJProgress extends View {
         mPaint.setStrokeJoin(Paint.Join.ROUND);
         mPaint.setAntiAlias(true);
         mPaint.setTextSize(mProgressTextSize);
+
     }
 
     @Override
@@ -92,7 +93,7 @@ public class KJProgress extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.save();
-        canvas.translate(getPaddingLeft(), mHeight * 0.5f);
+        canvas.translate(getPaddingLeft() + mReachWidth * 0.5f, mHeight * 0.5f);
         String progressText = mProgress + "%";
         float textWidth = mPaint.measureText(progressText);
         float textHeight = (mPaint.descent() + mPaint.ascent()) / 2;
@@ -104,7 +105,7 @@ public class KJProgress extends View {
 
 
         float radio = getProgress() * 1.0f / mProgressMax * 1.0f;
-        float progressX = radio * (mMaxWidth - textWidth - mProgressTextMargin);
+        float progressX = radio * (mMaxWidth - textWidth - mProgressTextMargin - mReachWidth * 0.5f - mUnreachWidth);
         float reachX = progressX;
         canvas.drawLine(0, 0, reachX, 0, mPaint);
         //绘制文本
@@ -116,7 +117,7 @@ public class KJProgress extends View {
         if (mProgress < mProgressMax) {
             mPaint.setColor(mUnreachColor);
             float unReachX = textX + textWidth + mProgressTextMargin;
-            canvas.drawLine(unReachX, 0, mMaxWidth, 0, mPaint);
+            canvas.drawLine(unReachX, 0, mMaxWidth - mUnreachWidth, 0, mPaint);
         }
         canvas.restore();
     }
