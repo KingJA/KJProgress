@@ -5,13 +5,97 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.kingja.progress.MainActivity"
-    android:padding="12dp">
+    android:padding="12dp"
+    tools:context="com.kingja.progress.MainActivity">
 
     <com.kingja.progress.KJProgress
+
         android:id="@+id/progress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:strokeCap="square" />
 
+    <com.kingja.progress.KJProgress
+
+        android:id="@+id/progress2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:strokeCap="round" />
+
+    <com.kingja.progress.KJProgress
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:strokeCap="square"
+        app:reachWidth="5dp"
+        app:progress="0" />
+
+    <com.kingja.progress.KJProgress
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:strokeCap="round"
+        app:reachWidth="5dp"
+        app:progress="0" />
+
+    <com.kingja.progress.KJProgress
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:strokeCap="square"
+        app:reachWidth="5dp"
+        app:progress="100" />
+
+    <com.kingja.progress.KJProgress
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:strokeCap="round"
+        app:reachWidth="5dp"
+        app:progress="100" />
+
+    <com.kingja.progress.KJProgress
+        android:layout_marginTop="12dp"
+        app:reachColor="#1f8432"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:strokeCap="round"
+        app:reachWidth="5dp"
+        app:progress="50" />
+
+    <com.kingja.progress.KJProgress
+        android:layout_marginTop="12dp"
+        app:reachColor="#fc7304"
+        app:progressTextColor="#fc7304"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:strokeCap="round"
+        app:reachWidth="8dp"
+        app:progress="75"
+        app:progressTextMargin="8dp"
+        app:progressTextSize="16sp" />
+
+    <com.kingja.progress.KJProgress
+        android:layout_marginTop="12dp"
+        app:reachColor="#fc7304"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:strokeCap="round"
+        app:reachWidth="8dp"
+        app:progress="0"
+        app:progressTextMargin="8dp"
+        app:progressTextSize="16sp" />
+
+    <com.kingja.progress.KJProgress
+        app:progressTextColor="#fc7304"
+        android:layout_marginTop="12dp"
+        app:reachColor="#fc7304"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:strokeCap="square"
+        app:reachWidth="8dp"
+        app:progress="75"
+        app:progressTextMargin="8dp"
+        app:progressTextSize="16sp"
         />
 </LinearLayout>

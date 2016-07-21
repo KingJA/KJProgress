@@ -10,6 +10,10 @@
         <attr name="progressTextSize" format="dimension" />
         <attr name="progressTextColor" format="color|reference" />
         <attr name="progressTextMargin" format="dimension" />
+        <attr name="strokeCap">
+            <flag name="round" value="0" />
+            <flag name="square" value="1" />
+        </attr>
     </declare-styleable>
 
 </resources>

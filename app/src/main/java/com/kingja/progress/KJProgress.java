@@ -5,7 +5,6 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 
@@ -40,6 +39,7 @@ public class KJProgress extends View {
     private float mMaxWidth;
     private int mHeight;
     private float mProgressTextMargin;
+    private int mSrokeCap;
 
     public KJProgress(Context context) {
         this(context, null);
@@ -61,13 +61,13 @@ public class KJProgress extends View {
         mReachColor = typedArray.getColor(R.styleable.KJProgress_reachColor, REACH_COLOR);
         mUnreachColor = typedArray.getColor(R.styleable.KJProgress_unreachColor, UNREACH_COLOR);
         mProgressTextColor = typedArray.getColor(R.styleable.KJProgress_progressTextColor, PROGRESS_TEXT_COLOR);
+        mSrokeCap = typedArray.getInteger(R.styleable.KJProgress_strokeCap, 0);
         init();
     }
 
     private void init() {
         mPaint = new Paint();
-        mPaint.setStrokeCap(Paint.Cap.ROUND);
-        mPaint.setStrokeJoin(Paint.Join.ROUND);
+        mPaint.setStrokeCap(mSrokeCap == 0 ? Paint.Cap.ROUND : Paint.Cap.SQUARE);
         mPaint.setAntiAlias(true);
         mPaint.setTextSize(mProgressTextSize);
 
@@ -92,12 +92,18 @@ public class KJProgress extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        float offsetLeft = mSrokeCap == 0 ? mReachWidth * 0.5f : 0f;
+        float offsetRight = mSrokeCap == 0 ? mReachWidth * 0.5f : 0f;
+        float marginLeft = mProgressTextMargin;
+        float marginRight = mProgressTextMargin;
         canvas.save();
-        canvas.translate(getPaddingLeft() + mReachWidth * 0.5f, mHeight * 0.5f);
+        if (getProgress() == 0) {
+            offsetLeft = 0;
+        }
+        canvas.translate(getPaddingLeft() + offsetLeft, mHeight * 0.5f);
         String progressText = mProgress + "%";
         float textWidth = mPaint.measureText(progressText);
         float textHeight = (mPaint.descent() + mPaint.ascent()) / 2;
-
 
         //绘制完成进度条
         mPaint.setColor(mReachColor);
@@ -105,19 +111,26 @@ public class KJProgress extends View {
 
 
         float radio = getProgress() * 1.0f / mProgressMax * 1.0f;
-        float progressX = radio * (mMaxWidth - textWidth - mProgressTextMargin - mReachWidth * 0.5f - mUnreachWidth);
+        float progressX = radio * (mMaxWidth - textWidth - mProgressTextMargin - offsetLeft * 0.5f - offsetRight);
         float reachX = progressX;
-        canvas.drawLine(0, 0, reachX, 0, mPaint);
+        if (reachX > 0) {
+            canvas.drawLine(0, 0, reachX, 0, mPaint);
+        }
+
+
         //绘制文本
 
         mPaint.setColor(mProgressTextColor);
-        float textX = progressX + mProgressTextMargin;
+        if (getProgress() == 0) {
+            marginLeft = 0;
+        }
+        float textX = progressX + marginLeft;
         canvas.drawText(progressText, textX, -textHeight, mPaint);
 
         if (mProgress < mProgressMax) {
             mPaint.setColor(mUnreachColor);
-            float unReachX = textX + textWidth + mProgressTextMargin;
-            canvas.drawLine(unReachX, 0, mMaxWidth - mUnreachWidth, 0, mPaint);
+            float unReachX = textX + textWidth + marginRight;
+            canvas.drawLine(unReachX, 0, mMaxWidth - 2.0f * offsetRight, 0, mPaint);
         }
         canvas.restore();
     }
