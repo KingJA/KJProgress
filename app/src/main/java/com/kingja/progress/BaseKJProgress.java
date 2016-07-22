@@ -2,7 +2,6 @@ package com.kingja.progress;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.AttributeSet;
@@ -33,7 +32,6 @@ public abstract class BaseKJProgress extends View {
     protected int mReachColor;
     protected int mUnreachColor;
     protected int mProgressTextColor;
-    protected Paint mPaint;
     protected float mWidth;
     protected int mHeight;
     protected float mProgressTextMargin;
@@ -50,6 +48,7 @@ public abstract class BaseKJProgress extends View {
 
     public BaseKJProgress(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        initAttrs(context, attrs);
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.KJProgress);
         mProgress = typedArray.getInteger(R.styleable.KJProgress_progress, 0);
         mProgressMax = typedArray.getInteger(R.styleable.KJProgress_progressMax, PROGRESS_MAX);
@@ -65,6 +64,8 @@ public abstract class BaseKJProgress extends View {
         typedArray.recycle();
         init();
     }
+
+    protected abstract void initAttrs(Context context, AttributeSet attrs);
 
     protected abstract void init();
 

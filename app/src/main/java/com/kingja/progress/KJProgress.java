@@ -3,7 +3,6 @@ package com.kingja.progress;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.os.Parcelable;
 import android.util.AttributeSet;
 
 /**
@@ -16,6 +15,8 @@ import android.util.AttributeSet;
 public class KJProgress extends BaseKJProgress {
 
 
+    private Paint mPaint;
+
     public KJProgress(Context context) {
         super(context);
     }
@@ -26,6 +27,12 @@ public class KJProgress extends BaseKJProgress {
 
     public KJProgress(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+    }
+
+
+    @Override
+    protected void initAttrs(Context context, AttributeSet attrs) {
+
     }
 
     @Override

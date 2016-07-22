@@ -11,9 +11,16 @@
         <attr name="progressTextColor" format="color|reference" />
         <attr name="progressTextMargin" format="dimension" />
         <attr name="radius" format="dimension" />
+        <attr name="scaleWidth" format="dimension" />
+        <attr name="scaleLength" format="dimension" />
+        <attr name="scaleNum" format="integer" />
         <attr name="strokeCap">
             <flag name="round" value="0" />
             <flag name="square" value="1" />
+        </attr>
+        <attr name="scaleCap">
+            <flag name="square" value="0" />
+            <flag name="circle" value="1" />
         </attr>
     </declare-styleable>
 

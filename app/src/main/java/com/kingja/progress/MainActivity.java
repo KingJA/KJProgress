@@ -15,11 +15,13 @@ public class MainActivity extends AppCompatActivity {
             int currentProgress2 = progress2.getProgress();
             int currentProgress3 = progressRound1.getProgress();
             int currentProgress4 = progressRound1.getProgress();
+            int currentProgress5 = progressDot1.getProgress();
             if (currentProgress < 100) {
                 progress.setProgress(++currentProgress);
                 progress2.setProgress(++currentProgress2);
                 progressRound1.setProgress(++currentProgress3);
                 progressRound2.setProgress(++currentProgress4);
+//                progressDot1.setProgress(++currentProgress5);
                 handler.sendEmptyMessageDelayed(0, 100);
             }
         }
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private KJProgress progress2;
     private KJProgressRound progressRound1;
     private KJProgressRound progressRound2;
+    private KJProgressScale progressDot1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         progress2 = (KJProgress) findViewById(R.id.progress2);
         progressRound1 = (KJProgressRound) findViewById(R.id.progressRound1);
         progressRound2 = (KJProgressRound) findViewById(R.id.progressRound2);
+        progressDot1 = (KJProgressScale) findViewById(R.id.progressDot1);
         handler.sendEmptyMessageDelayed(0, 100);
     }
 }

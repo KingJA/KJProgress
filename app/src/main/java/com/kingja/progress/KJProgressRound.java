@@ -6,7 +6,6 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
-import android.util.Log;
 
 /**
  * 项目名称：
@@ -20,18 +19,23 @@ public class KJProgressRound extends BaseKJProgress {
     private float mMaxPaintWidth;
     private int mRadius;
     private Paint mTextPaint;
-
+    private Paint mPaint;
 
     public KJProgressRound(Context context) {
-        this(context, null);
+        super(context);
     }
 
     public KJProgressRound(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
     }
 
     public KJProgressRound(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+    }
+
+
+    @Override
+    protected void initAttrs(Context context, AttributeSet attrs) {
         TypedArray typedArray = context.obtainStyledAttributes(attrs,
                 R.styleable.KJProgress);
         mRadius = (int) typedArray.getDimension(
