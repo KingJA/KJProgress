@@ -158,16 +158,16 @@
             app:strokeCap="square"
             />
 
-        <com.kingja.progress.KJProgressRound
-            app:radius="50dp"
-            app:progress="98"
+        <com.kingja.progress.KJProgressDot
+            app:radius="60dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#44ff0000"
+            android:background="#44406094"
             app:progressTextColor="#fc7304"
             app:progressTextSize="16sp"
-            app:reachColor="#fc7304"
+            app:unreachColor="#0035d4"
+            app:unreachWidth="2dp"
             app:strokeCap="square"
-            app:unreachWidth="4dp" />
+           />
     </LinearLayout>
 </LinearLayout>

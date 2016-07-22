@@ -24,7 +24,6 @@ public abstract class BaseKJProgress extends View {
     private static final int UNREACH_COLOR = 0XFFC6C6C6;
     private static final int UNREACH_WIDTH = 4;
     private static final int PROGRESS_TEXT_SIZE = 14;
-    private static final int PROGRESS_TEXT_COLOR = 0XFF3F51B5;
     private static final int PROGRESS_TEXT_MARGIN = 4;
     protected int mProgress;
     protected int mProgressMax;
