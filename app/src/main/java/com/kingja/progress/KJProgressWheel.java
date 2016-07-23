@@ -23,7 +23,7 @@ public class KJProgressWheel extends View {
     private final int barLength = 16;
     private final int barMaxLength = 270;
     private final long pauseGrowingTime = 200;
-    private float mProgressRadius = dp2px(56);
+    private int mProgressRadius = dp2px(56);
     private float mProgressWidth = dp2px(6);
     private double timeStartGrowing = 0;
     private double barSpinCycleTime = 460;
@@ -55,7 +55,7 @@ public class KJProgressWheel extends View {
 
     private void parseAttributes(TypedArray typedArray) {
         mProgressWidth = typedArray.getDimension(R.styleable.ProgressWheel_progressWidth, mProgressWidth);
-        mProgressRadius = typedArray.getDimension(R.styleable.ProgressWheel_progressRadius, mProgressRadius);
+        mProgressRadius = (int) typedArray.getDimension(R.styleable.ProgressWheel_progressRadius, mProgressRadius);
         mProgressColor = typedArray.getColor(R.styleable.ProgressWheel_progressColor, mProgressColor);
         mBgColor = typedArray.getColor(R.styleable.ProgressWheel_bgColor, mBgColor);
         mProgressCap = typedArray.getInteger(R.styleable.ProgressWheel_progressCap, mProgressCap);
@@ -69,13 +69,38 @@ public class KJProgressWheel extends View {
     }
 
 
-
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-
+        int defaultSize = getPaddingLeft() + getPaddingRight() + mProgressRadius * 2;
+        setMeasuredDimension(getMeasureSize(defaultSize, widthMeasureSpec), getMeasureSize(defaultSize, widthMeasureSpec));
     }
 
+    public int getMeasureSize(int size, int measureSpec) {
+        int result = size;
+        int specMode = MeasureSpec.getMode(measureSpec);
+        int specSize = MeasureSpec.getSize(measureSpec);
+        switch (specMode) {
+            case MeasureSpec.EXACTLY:
+                result = specSize;
+                break;
+            case MeasureSpec.UNSPECIFIED:
+                result = size;
+                break;
+            case MeasureSpec.AT_MOST:
+                result = Math.min(size, specSize);
+                break;
+        }
+        return result;
+    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        setupPaints();
+        circleBounds = new RectF(getPaddingLeft()+0.5f * mProgressWidth, getPaddingTop()+0.5f * mProgressWidth,
+                w - 0.5f * mProgressWidth-getPaddingRight(), h - 0.5f * mProgressWidth-getPaddingBottom());
+    }
 
     @Override
     protected void onDraw(Canvas canvas) {
@@ -99,13 +124,7 @@ public class KJProgressWheel extends View {
         invalidate();
     }
 
-    @Override
-    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
-        super.onSizeChanged(w, h, oldw, oldh);
-        setupPaints();
-        circleBounds = new RectF(0.5f*mProgressWidth, 0.5f*mProgressWidth,
-                w - 0.5f*mProgressWidth, h - 0.5f*mProgressWidth);
-    }
+
     private void setupPaints() {
         mProgressPaint.setColor(mProgressColor);
         mProgressPaint.setAntiAlias(true);
@@ -117,6 +136,7 @@ public class KJProgressWheel extends View {
         mBgPaint.setStyle(Paint.Style.STROKE);
         mBgPaint.setStrokeWidth(mProgressWidth);
     }
+
     private void updateBarLength(long deltaTimeInMilliSeconds) {
         if (pausedTimeWithoutGrowing >= pauseGrowingTime) {
             timeStartGrowing += deltaTimeInMilliSeconds;
