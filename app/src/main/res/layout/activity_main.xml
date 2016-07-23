@@ -205,5 +205,11 @@
             app:scaleWidth="1dp"
             app:scaleCap="circle"
             app:unreachColor="#44ffffff" />
+
+        <com.kingja.progress.KJProgressWheel
+            app:progressWidth="5dp"
+            android:background="#f4adad"
+            android:layout_width="56dp"
+            android:layout_height="56dp" />
     </LinearLayout>
 </LinearLayout>
