@@ -4,8 +4,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.widget.Toast;
+
+import com.lib.kingja.progress.R;
+
+import lib.kingja.progress.BaseKJProgress;
+import lib.kingja.progress.KJProgress;
+import lib.kingja.progress.KJProgressRound;
+import lib.kingja.progress.KJProgressScale;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
@@ -50,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
         progressRound3.setOnProgressFinsihedListener(new BaseKJProgress.OnProgressFinsihedListener() {
             @Override
             public void onFinished() {
-                Toast.makeText(MainActivity.this,"完成",Toast.LENGTH_SHORT).show();
-                Log.e(TAG, "完成: ");
+//                Toast.makeText(MainActivity.this,"完成",Toast.LENGTH_SHORT).show();
+//                Log.e(TAG, "完成: ");
             }
         });
     }

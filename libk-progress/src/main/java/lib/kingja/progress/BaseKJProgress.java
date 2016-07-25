@@ -1,4 +1,4 @@
-package com.kingja.progress;
+package lib.kingja.progress;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -8,13 +8,6 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 
-/**
- * 项目名称：
- * 类描述：TODO
- * 创建人：KingJA
- * 创建时间：2016/7/22 10:54
- * 修改备注：
- */
 public abstract class BaseKJProgress extends View {
     protected String TAG =getClass().getSimpleName();
     private static final int PROGRESS_MAX = 100;
@@ -96,7 +89,7 @@ public abstract class BaseKJProgress extends View {
     @Override
     protected Parcelable onSaveInstanceState() {
         Bundle bundle = new Bundle();
-        bundle.putParcelable("BASE", super.onSaveInstanceState());//保持父类数据
+        bundle.putParcelable("BASE", super.onSaveInstanceState());
         bundle.putInt("PROGRESS", mProgress);
         return bundle;
     }
@@ -112,11 +105,11 @@ public abstract class BaseKJProgress extends View {
         }
     }
 
-    protected int getProgress() {
+    public int getProgress() {
         return mProgress;
     }
 
-    protected void setProgress(int mProgress) {
+    public void setProgress(int mProgress) {
         if (mProgress < 0) {
             mProgress = 0;
         }

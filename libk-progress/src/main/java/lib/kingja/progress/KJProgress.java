@@ -1,4 +1,4 @@
-package com.kingja.progress;
+package lib.kingja.progress;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -6,13 +6,6 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 
-/**
- * 项目名称：
- * 类描述：TODO
- * 创建人：KingJA
- * 创建时间：2016/7/21 14:16
- * 修改备注：
- */
 public class KJProgress extends BaseKJProgress {
     private static final int PROGRESS_TEXT_MARGIN = 4;
     protected float mProgressTextMargin;
@@ -87,7 +80,7 @@ public class KJProgress extends BaseKJProgress {
             offsetLeft = 0;
         }
         canvas.translate(getPaddingLeft() + offsetLeft, mHeight * 0.5f);
-        String progressText = mProgress + "%";
+        String progressText = (int)(getProgress()*100f/mProgressMax) + "%";
         float textWidth = mPaint.measureText(progressText);
         float textHeight = (mPaint.descent() + mPaint.ascent()) / 2;
 

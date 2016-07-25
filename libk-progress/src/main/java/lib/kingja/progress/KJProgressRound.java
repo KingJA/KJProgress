@@ -1,4 +1,4 @@
-package com.kingja.progress;
+package lib.kingja.progress;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -7,13 +7,6 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 
-/**
- * 项目名称：
- * 类描述：TODO
- * 创建人：KingJA
- * 创建时间：2016/7/22 10:50
- * 修改备注：
- */
 public class KJProgressRound extends BaseKJProgress {
     private static final int DEFAULT_SIZE = 50;
     private float mMaxPaintWidth;
@@ -114,7 +107,7 @@ public class KJProgressRound extends BaseKJProgress {
         if (useCenter) {
             return;
         }
-        String progressText = getProgress() + "%";
+        String progressText = (int)(getProgress()*100f/mProgressMax) + "%";
         float textWidth = mTextPaint.measureText(progressText);
         float offsetY = -(mTextPaint.ascent() + mTextPaint.descent()) / 2;
         mTextPaint.setColor(mProgressTextColor);

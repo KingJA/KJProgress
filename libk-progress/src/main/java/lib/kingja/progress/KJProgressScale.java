@@ -1,19 +1,11 @@
-package com.kingja.progress;
+package lib.kingja.progress;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.util.Log;
 
-/**
- * 项目名称：
- * 类描述：TODO
- * 创建人：KingJA
- * 创建时间：2016/7/22 16:10
- * 修改备注：
- */
 public class KJProgressScale extends BaseKJProgress {
     private static final int DEFAULT_SIZE = 100;
     private float mScaleWidth;
@@ -119,7 +111,7 @@ public class KJProgressScale extends BaseKJProgress {
 
 
     private void drawProgressText(Canvas canvas) {
-        String progressText = getProgress() + "%";
+        String progressText = (int)(getProgress()*100f/mProgressMax) + "%";
         float textWidth = mPaint.measureText(progressText);
         float offsetY = -(mPaint.ascent() + mPaint.descent()) / 2;
         mTextPaint.setColor(mProgressTextColor);
