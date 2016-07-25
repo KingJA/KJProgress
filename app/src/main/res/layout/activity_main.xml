@@ -99,19 +99,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#3b36d2"
-            app:progress="50"
+            app:progressMax="50"
+            app:progress="25"
             app:progressTextColor="#ffffff"
             app:progressTextSize="16sp"
             app:radius="50dp"
             app:reachColor="#ffffff"
             app:scaleLength="8dp"
-
-            app:scaleNum="60"
             app:scaleWidth="1dp"
             app:unreachColor="#44ffffff" />
 
         <com.kingja.progress.KJProgressScale
-
+            app:progressMax="60"
+            app:progress="25"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#3b36d2"
@@ -122,7 +122,7 @@
             app:scaleCap="circle"
             app:scaleLength="8dp"
             app:scaleNum="100"
-            app:scaleWidth="1dp"
+            app:scaleWidth="2dp"
             app:unreachColor="#44ffffff" />
 
     </LinearLayout>

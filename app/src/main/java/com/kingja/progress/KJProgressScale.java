@@ -18,7 +18,6 @@ public class KJProgressScale extends BaseKJProgress {
     private static final int DEFAULT_SIZE = 100;
     private float mScaleWidth;
     private float mScaleLength;
-    private int mScaleNum;
     private int mRadius;
     private Paint mPaint;
     private int rotateX;
@@ -50,8 +49,6 @@ public class KJProgressScale extends BaseKJProgress {
                 R.styleable.KJProgress);
         mRadius = (int) typedArray.getDimension(
                 R.styleable.KJProgress_radius, dp2px(DEFAULT_SIZE));
-        mScaleNum = typedArray.getInteger(
-                R.styleable.KJProgress_scaleNum, 100);
         mScaleWidth = typedArray.getDimension(
                 R.styleable.KJProgress_scaleWidth, dp2px(2));
         mScaleLength = typedArray.getDimension(
@@ -107,7 +104,7 @@ public class KJProgressScale extends BaseKJProgress {
         mPaint.setColor(mUnreachColor);
         canvas.save();
         canvas.translate(getPaddingLeft(), getPaddingTop());
-        for (int i = 0; i < mScaleNum; i++) {
+        for (int i = 0; i < mProgressMax; i++) {
             mPaint.setColor(i < getProgress() ? mReachColor : mUnreachColor);
             if (mScaleCap == 0) {
                 canvas.drawLine(rotateX, 0, rotateX, mScaleLength, mPaint);
@@ -115,7 +112,7 @@ public class KJProgressScale extends BaseKJProgress {
                 canvas.drawCircle(rotateX, mScaleWidth, mScaleWidth, mPaint);
             }
 
-            canvas.rotate(360f / mScaleNum, rotateX, rotateY);
+            canvas.rotate(360f / mProgressMax, rotateX, rotateY);
         }
         canvas.restore();
     }
