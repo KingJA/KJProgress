@@ -91,7 +91,6 @@ public class KJProgress extends BaseKJProgress {
         float textWidth = mPaint.measureText(progressText);
         float textHeight = (mPaint.descent() + mPaint.ascent()) / 2;
 
-        //绘制完成进度条
         mPaint.setColor(mReachColor);
         mPaint.setStrokeWidth(mReachWidth);
 
@@ -104,7 +103,6 @@ public class KJProgress extends BaseKJProgress {
         }
 
 
-        //绘制文本
 
         mPaint.setColor(mProgressTextColor);
         if (getProgress() == 0) {
@@ -113,7 +111,6 @@ public class KJProgress extends BaseKJProgress {
         }
         float textX = progressX + marginLeft;
         canvas.drawText(progressText, textX, -textHeight, mPaint);
-        //绘制未完成进度条
 
         if (mProgress < mProgressMax) {
             mPaint.setColor(mUnreachColor);
