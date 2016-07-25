@@ -1,6 +1,7 @@
 package com.kingja.progress;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
@@ -13,6 +14,8 @@ import android.util.AttributeSet;
  * 修改备注：
  */
 public class KJProgress extends BaseKJProgress {
+    private static final int PROGRESS_TEXT_MARGIN = 4;
+    protected float mProgressTextMargin;
 
 
     private Paint mPaint;
@@ -29,18 +32,31 @@ public class KJProgress extends BaseKJProgress {
         super(context, attrs, defStyleAttr);
     }
 
+    @Override
+    protected void onAttached() {
+        mPaint = new Paint();
+        mPaint.setStrokeCap(mSrokeCap == 0 ? Paint.Cap.SQUARE : Paint.Cap.ROUND);
+        mPaint.setAntiAlias(true);
+        mPaint.setTextSize(mProgressTextSize);
+    }
+
 
     @Override
     protected void initAttrs(Context context, AttributeSet attrs) {
+        TypedArray typedArray = context.obtainStyledAttributes(attrs,
+                R.styleable.KJProgress);
+        mProgressTextMargin = typedArray.getDimension(R.styleable.KJProgress_progressTextMargin, dp2px(PROGRESS_TEXT_MARGIN));
+        typedArray.recycle();
+    }
+
+    @Override
+    protected void initVariable() {
 
     }
 
     @Override
-    protected void init() {
-        mPaint = new Paint();
-        mPaint.setStrokeCap(mSrokeCap == 0 ? Paint.Cap.ROUND : Paint.Cap.SQUARE);
-        mPaint.setAntiAlias(true);
-        mPaint.setTextSize(mProgressTextSize);
+    protected void setBetterSize(int width, int height) {
+
     }
 
     @Override
@@ -62,8 +78,8 @@ public class KJProgress extends BaseKJProgress {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        float offsetLeft = mSrokeCap == 0 ? mReachWidth * 0.5f : 0f;
-        float offsetRight = mSrokeCap == 0 ? mReachWidth * 0.5f : 0f;
+        float offsetLeft = mSrokeCap == 1 ? mReachWidth * 0.5f : 0f;
+        float offsetRight = mSrokeCap == 1 ? mReachWidth * 0.5f : 0f;
         float marginLeft = mProgressTextMargin;
         float marginRight = mProgressTextMargin;
         canvas.save();
@@ -80,7 +96,7 @@ public class KJProgress extends BaseKJProgress {
         mPaint.setStrokeWidth(mReachWidth);
 
 
-        float radio = getProgress() * 1.0f / mProgressMax * 1.0f;
+        float radio = getProgress() * 1.0f / mProgressMax;
         float progressX = radio * (mWidth - textWidth - mProgressTextMargin - offsetLeft * 0.5f - offsetRight);
         float reachX = progressX;
         if (reachX > 0) {

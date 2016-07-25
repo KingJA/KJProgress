@@ -11,70 +11,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:visibility="gone">
+        android:orientation="vertical">
 
 
         <com.kingja.progress.KJProgress
-
-            android:id="@+id/progress"
-            android:layout_width="match_parent"
+            android:id="@+id/progress1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:strokeCap="square" />
 
-        <com.kingja.progress.KJProgress
 
+        <com.kingja.progress.KJProgress
             android:id="@+id/progress2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:strokeCap="round" />
-
-        <com.kingja.progress.KJProgress
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            app:progress="0"
-            app:reachWidth="5dp"
-            app:strokeCap="square" />
-
-        <com.kingja.progress.KJProgress
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            app:progress="0"
-            app:reachWidth="5dp"
-            app:strokeCap="round" />
-
-        <com.kingja.progress.KJProgress
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            app:progress="100"
-            app:reachWidth="5dp"
-            app:strokeCap="square" />
-
-        <com.kingja.progress.KJProgress
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            app:progress="100"
-            app:reachWidth="5dp"
-            app:strokeCap="round" />
-
-        <com.kingja.progress.KJProgress
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            app:progress="50"
-            app:reachColor="#1f8432"
-            app:reachWidth="5dp"
-            app:strokeCap="round" />
-
-        <com.kingja.progress.KJProgress
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            app:progress="75"
             app:progressTextColor="#fc7304"
             app:progressTextMargin="8dp"
             app:progressTextSize="16sp"
@@ -82,18 +33,6 @@
             app:reachWidth="8dp"
             app:strokeCap="round" />
 
-
-        <com.kingja.progress.KJProgress
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            app:progress="75"
-            app:progressTextColor="#fc7304"
-            app:progressTextMargin="8dp"
-            app:progressTextSize="16sp"
-            app:reachColor="#fc7304"
-            app:reachWidth="8dp"
-            app:strokeCap="square" />
 
     </LinearLayout>
 
@@ -103,72 +42,52 @@
         android:layout_marginTop="12dp"
         android:orientation="horizontal">
 
-        <com.kingja.progress.KJProgressRound
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#44ff0000"
-            app:progress="0"
-            app:progressTextColor="#fc7304"
-            app:progressTextSize="16sp"
-            app:radius="50dp"
-            app:reachColor="#fc7304"
-            app:unreachWidth="4dp" />
 
         <com.kingja.progress.KJProgressRound
             android:id="@+id/progressRound1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#44ff0000"
-            app:progressTextColor="#fc7304"
-            app:progressTextSize="16sp"
-            app:radius="50dp"
-            app:reachColor="#fc7304"
-            app:unreachWidth="4dp" />
-
-        <com.kingja.progress.KJProgressRound
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#44ff0000"
-            app:progress="98"
+            android:background="#157438"
+            android:padding="10dp"
             app:progressTextColor="#fc7304"
             app:progressTextSize="16sp"
             app:radius="50dp"
             app:reachColor="#fc7304"
             app:unreachWidth="4dp" />
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:orientation="horizontal">
-
-        <com.kingja.progress.KJProgressRound
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#44ff0000"
-            app:progress="0"
-            app:progressTextColor="#fc7304"
-            app:progressTextSize="16sp"
-            app:radius="50dp"
-            app:reachColor="#fc7304"
-            app:strokeCap="square"
-            app:unreachWidth="4dp" />
 
         <com.kingja.progress.KJProgressRound
             android:id="@+id/progressRound2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#44ff0000"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="#531d1d"
             app:progressTextColor="#fc7304"
             app:progressTextSize="16sp"
-            app:radius="50dp"
             app:reachColor="#fc7304"
-            app:strokeCap="square"
+            app:reachWidth="6dp"
+            app:strokeCap="round"
             app:unreachWidth="4dp" />
 
-
+        <com.kingja.progress.KJProgressRound
+            android:id="@+id/progressRound3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#39933e"
+            app:progressStyle="fill"
+            app:radius="20dp"
+            app:reachColor="#ffffff"
+            app:strokeCap="round"
+            app:unreachColor="#ffffff"
+            app:reachWidth="1dp"
+            app:unreachWidth="1dp" />
     </LinearLayout>
+
+    <View
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="#44ff0000"
+        android:visibility="gone" />
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -177,22 +96,7 @@
 
         <com.kingja.progress.KJProgressScale
             android:id="@+id/progressDot1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#3b36d2"
-            app:progressTextColor="#ffffff"
-            app:progressTextSize="16sp"
-            app:radius="50dp"
-            app:reachColor="#ffffff"
-            app:scaleLength="8dp"
-            app:scaleNum="100"
-            app:scaleWidth="1dp"
-            app:unreachColor="#44ffffff"
-            app:progress="0" />
-
-        <com.kingja.progress.KJProgressScale
-
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#3b36d2"
             app:progress="50"
@@ -201,18 +105,26 @@
             app:radius="50dp"
             app:reachColor="#ffffff"
             app:scaleLength="8dp"
-            app:scaleNum="100"
+
+            app:scaleNum="60"
             app:scaleWidth="1dp"
-            app:scaleCap="circle"
             app:unreachColor="#44ffffff" />
 
+        <com.kingja.progress.KJProgressScale
 
-
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#3b36d2"
+            app:progressTextColor="#ffffff"
+            app:progressTextSize="16sp"
+            app:radius="50dp"
+            app:reachColor="#ffffff"
+            app:scaleCap="circle"
+            app:scaleLength="8dp"
+            app:scaleNum="100"
+            app:scaleWidth="1dp"
+            app:unreachColor="#44ffffff" />
 
     </LinearLayout>
-    <com.kingja.progress.KJProgressWheel
-        app:progressWidth="5dp"
-        android:background="#f4adad"
-        android:layout_width="100dp"
-        android:layout_height="100dp" />
+
 </LinearLayout>

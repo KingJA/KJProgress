@@ -15,8 +15,13 @@
         <attr name="scaleLength" format="dimension" />
         <attr name="scaleNum" format="integer" />
         <attr name="strokeCap">
-            <flag name="round" value="0" />
-            <flag name="square" value="1" />
+            <flag name="square" value="0" />
+            <flag name="round" value="1" />
+        </attr>
+
+        <attr name="progressStyle">
+            <flag name="stroke" value="0" />
+            <flag name="fill" value="1" />
         </attr>
         <attr name="scaleCap">
             <flag name="square" value="0" />
@@ -24,15 +29,5 @@
         </attr>
     </declare-styleable>
 
-    <declare-styleable name="ProgressWheel">
-        <attr name="progressWidth" format="dimension" />
-        <attr name="progressRadius" format="dimension" />
-        <attr name="bgColor" format="color|reference" />
-        <attr name="progressColor" format="color|reference" />
-        <attr name="progressCap">
-            <flag name="square" value="0" />
-            <flag name="round" value="1" />
-        </attr>
-    </declare-styleable>
 
 </resources>

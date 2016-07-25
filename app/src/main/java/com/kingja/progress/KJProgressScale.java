@@ -38,6 +38,11 @@ public class KJProgressScale extends BaseKJProgress {
         super(context, attrs, defStyleAttr);
     }
 
+    @Override
+    protected void onAttached() {
+
+    }
+
 
     @Override
     protected void initAttrs(Context context, AttributeSet attrs) {
@@ -57,7 +62,7 @@ public class KJProgressScale extends BaseKJProgress {
     }
 
     @Override
-    protected void init() {
+    protected void initVariable() {
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
         mPaint.setTextSize(mProgressTextSize);
@@ -68,6 +73,11 @@ public class KJProgressScale extends BaseKJProgress {
         mPaint.setDither(true);
         mPaint.setColor(mProgressTextColor);
         mPaint.setTextSize(mProgressTextSize);
+
+    }
+
+    @Override
+    protected void setBetterSize(int width, int height) {
 
     }
 
@@ -86,6 +96,13 @@ public class KJProgressScale extends BaseKJProgress {
         mProgressTextSize = Math.min(mRadius * 0.5f, mProgressTextSize);
     }
 
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        drawProgressScale(canvas);
+        drawProgressText(canvas);
+    }
+
     private void drawProgressScale(Canvas canvas) {
         mPaint.setColor(mUnreachColor);
         canvas.save();
@@ -101,17 +118,6 @@ public class KJProgressScale extends BaseKJProgress {
             canvas.rotate(360f / mScaleNum, rotateX, rotateY);
         }
         canvas.restore();
-    }
-
-
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        Log.e(TAG, "mScaleCap: " + mScaleCap);
-        drawProgressScale(canvas);
-        drawProgressText(canvas);
-
-
     }
 
 
