@@ -53,12 +53,11 @@
             android:id="@+id/progressRound1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#157438"
-            android:padding="10dp"
-            app:progressTextColor="#fc7304"
-            app:progressTextSize="16sp"
+            app:progressTextColor="#4285f4"
+            app:progressTextSize="30sp"
             app:radius="50dp"
-            app:reachColor="#fc7304"
+            app:reachColor="#4285f4"
+            app:unreachColor="#d9e7fd"
             app:unreachWidth="4dp" />
 
 
