@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 
-public abstract class BaseKJProgress extends View {
+public abstract class BaseProgress extends View {
     protected String TAG =getClass().getSimpleName();
     private static final int PROGRESS_MAX = 100;
     private static final int REACH_WIDTH = 4;
@@ -30,27 +30,27 @@ public abstract class BaseKJProgress extends View {
     private OnProgressFinsihedListener onProgressFinsihedListener;
 
 
-    public BaseKJProgress(Context context) {
+    public BaseProgress(Context context) {
         this(context, null);
     }
 
-    public BaseKJProgress(Context context, AttributeSet attrs) {
+    public BaseProgress(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public BaseKJProgress(Context context, AttributeSet attrs, int defStyleAttr) {
+    public BaseProgress(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initAttrs(context, attrs);
-        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.KJProgress);
-        mProgress=typedArray.getInteger(R.styleable.KJProgress_progress, 0);
-        mProgressMax=typedArray.getInteger(R.styleable.KJProgress_progressMax, PROGRESS_MAX);
-        mReachWidth = typedArray.getDimension(R.styleable.KJProgress_reachWidth, dp2px(REACH_WIDTH));
-        mUnreachWidth = typedArray.getDimension(R.styleable.KJProgress_unreachWidth, dp2px(UNREACH_WIDTH));
-        mProgressTextSize = typedArray.getDimension(R.styleable.KJProgress_progressTextSize, sp2px(PROGRESS_TEXT_SIZE));
-        mProgressTextColor = typedArray.getColor(R.styleable.KJProgress_progressTextColor, REACH_COLOR);
-        mReachColor = typedArray.getColor(R.styleable.KJProgress_reachColor, REACH_COLOR);
-        mUnreachColor = typedArray.getColor(R.styleable.KJProgress_unreachColor, UNREACH_COLOR);
-        mSrokeCap = typedArray.getInteger(R.styleable.KJProgress_strokeCap, 0);
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.NormalProgress);
+        mProgress=typedArray.getInteger(R.styleable.NormalProgress_progress, 0);
+        mProgressMax=typedArray.getInteger(R.styleable.NormalProgress_progressMax, PROGRESS_MAX);
+        mReachWidth = typedArray.getDimension(R.styleable.NormalProgress_reachWidth, dp2px(REACH_WIDTH));
+        mUnreachWidth = typedArray.getDimension(R.styleable.NormalProgress_unreachWidth, dp2px(UNREACH_WIDTH));
+        mProgressTextSize = typedArray.getDimension(R.styleable.NormalProgress_progressTextSize, sp2px(PROGRESS_TEXT_SIZE));
+        mProgressTextColor = typedArray.getColor(R.styleable.NormalProgress_progressTextColor, REACH_COLOR);
+        mReachColor = typedArray.getColor(R.styleable.NormalProgress_reachColor, REACH_COLOR);
+        mUnreachColor = typedArray.getColor(R.styleable.NormalProgress_unreachColor, UNREACH_COLOR);
+        mSrokeCap = typedArray.getInteger(R.styleable.NormalProgress_strokeCap, 0);
         typedArray.recycle();
     }
 

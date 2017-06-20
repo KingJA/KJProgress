@@ -7,7 +7,7 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 
-public class KJProgressRound extends BaseKJProgress {
+public class RoundProgress extends BaseProgress {
     private static final int DEFAULT_SIZE = 50;
     private float mMaxPaintWidth;
     private int mRadius;
@@ -16,25 +16,25 @@ public class KJProgressRound extends BaseKJProgress {
     private Paint mTextPaint;
     private int mProgressStyle;
 
-    public KJProgressRound(Context context) {
+    public RoundProgress(Context context) {
         super(context);
     }
 
-    public KJProgressRound(Context context, AttributeSet attrs) {
+    public RoundProgress(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public KJProgressRound(Context context, AttributeSet attrs, int defStyleAttr) {
+    public RoundProgress(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
     @Override
     protected void initAttrs(Context context, AttributeSet attrs) {
         TypedArray typedArray = context.obtainStyledAttributes(attrs,
-                R.styleable.KJProgress);
+                R.styleable.NormalProgress);
         mRadius = (int) typedArray.getDimension(
-                R.styleable.KJProgress_radius, dp2px(DEFAULT_SIZE));
-        mProgressStyle = typedArray.getInteger(R.styleable.KJProgress_progressStyle, 0);
+                R.styleable.NormalProgress_radius, dp2px(DEFAULT_SIZE));
+        mProgressStyle = typedArray.getInteger(R.styleable.NormalProgress_progressStyle, 0);
         typedArray.recycle();
     }
 

@@ -7,10 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.lib.kingja.progress.R;
 
-import lib.kingja.progress.BaseKJProgress;
-import lib.kingja.progress.KJProgress;
-import lib.kingja.progress.KJProgressRound;
-import lib.kingja.progress.KJProgressScale;
+import lib.kingja.progress.BaseProgress;
+import lib.kingja.progress.NormalProgress;
+import lib.kingja.progress.RoundProgress;
+import lib.kingja.progress.ScaleProgress;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
@@ -34,25 +34,25 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     };
-    private KJProgress progress1;
-    private KJProgress progress2;
-    private KJProgressRound progressRound1;
-    private KJProgressRound progressRound2;
-    private KJProgressRound progressRound3;
-    private KJProgressScale progressDot1;
+    private NormalProgress progress1;
+    private NormalProgress progress2;
+    private RoundProgress progressRound1;
+    private RoundProgress progressRound2;
+    private RoundProgress progressRound3;
+    private ScaleProgress progressDot1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        progress1 = (KJProgress) findViewById(R.id.progress1);
-        progress2 = (KJProgress) findViewById(R.id.progress2);
-        progressRound1 = (KJProgressRound) findViewById(R.id.progressRound1);
-        progressRound2 = (KJProgressRound) findViewById(R.id.progressRound2);
-        progressRound3 = (KJProgressRound) findViewById(R.id.progressRound3);
-        progressDot1 = (KJProgressScale) findViewById(R.id.progressDot1);
+        progress1 = (NormalProgress) findViewById(R.id.progress1);
+        progress2 = (NormalProgress) findViewById(R.id.progress2);
+        progressRound1 = (RoundProgress) findViewById(R.id.progressRound1);
+        progressRound2 = (RoundProgress) findViewById(R.id.progressRound2);
+        progressRound3 = (RoundProgress) findViewById(R.id.progressRound3);
+        progressDot1 = (ScaleProgress) findViewById(R.id.progressDot1);
         handler.sendEmptyMessageDelayed(0, 100);
-        progressRound3.setOnProgressFinsihedListener(new BaseKJProgress.OnProgressFinsihedListener() {
+        progressRound3.setOnProgressFinsihedListener(new BaseProgress.OnProgressFinsihedListener() {
             @Override
             public void onFinished() {
 //                Toast.makeText(MainActivity.this,"完成",Toast.LENGTH_SHORT).show();

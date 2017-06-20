@@ -6,7 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 
-public class KJProgressScale extends BaseKJProgress {
+public class ScaleProgress extends BaseProgress {
     private static final int DEFAULT_SIZE = 100;
     private float mScaleWidth;
     private float mScaleLength;
@@ -17,15 +17,15 @@ public class KJProgressScale extends BaseKJProgress {
     private Paint mTextPaint;
     private int mScaleCap;
 
-    public KJProgressScale(Context context) {
+    public ScaleProgress(Context context) {
         super(context);
     }
 
-    public KJProgressScale(Context context, AttributeSet attrs) {
+    public ScaleProgress(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public KJProgressScale(Context context, AttributeSet attrs, int defStyleAttr) {
+    public ScaleProgress(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -38,15 +38,15 @@ public class KJProgressScale extends BaseKJProgress {
     @Override
     protected void initAttrs(Context context, AttributeSet attrs) {
         TypedArray typedArray = context.obtainStyledAttributes(attrs,
-                R.styleable.KJProgress);
+                R.styleable.NormalProgress);
         mRadius = (int) typedArray.getDimension(
-                R.styleable.KJProgress_radius, dp2px(DEFAULT_SIZE));
+                R.styleable.NormalProgress_radius, dp2px(DEFAULT_SIZE));
         mScaleWidth = typedArray.getDimension(
-                R.styleable.KJProgress_scaleWidth, dp2px(2));
+                R.styleable.NormalProgress_scaleWidth, dp2px(2));
         mScaleLength = typedArray.getDimension(
-                R.styleable.KJProgress_scaleLength, dp2px(10));
+                R.styleable.NormalProgress_scaleLength, dp2px(10));
 
-        mScaleCap = typedArray.getInteger(R.styleable.KJProgress_scaleCap, 0);
+        mScaleCap = typedArray.getInteger(R.styleable.NormalProgress_scaleCap, 0);
         typedArray.recycle();
     }
 

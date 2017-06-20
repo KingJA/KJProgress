@@ -6,22 +6,22 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 
-public class KJProgress extends BaseKJProgress {
+public class NormalProgress extends BaseProgress {
     private static final int PROGRESS_TEXT_MARGIN = 4;
     protected float mProgressTextMargin;
 
 
     private Paint mPaint;
 
-    public KJProgress(Context context) {
+    public NormalProgress(Context context) {
         super(context);
     }
 
-    public KJProgress(Context context, AttributeSet attrs) {
+    public NormalProgress(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public KJProgress(Context context, AttributeSet attrs, int defStyleAttr) {
+    public NormalProgress(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -37,8 +37,8 @@ public class KJProgress extends BaseKJProgress {
     @Override
     protected void initAttrs(Context context, AttributeSet attrs) {
         TypedArray typedArray = context.obtainStyledAttributes(attrs,
-                R.styleable.KJProgress);
-        mProgressTextMargin = typedArray.getDimension(R.styleable.KJProgress_progressTextMargin, dp2px(PROGRESS_TEXT_MARGIN));
+                R.styleable.NormalProgress);
+        mProgressTextMargin = typedArray.getDimension(R.styleable.NormalProgress_progressTextMargin, dp2px(PROGRESS_TEXT_MARGIN));
         typedArray.recycle();
     }
 
